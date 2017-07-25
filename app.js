@@ -8,11 +8,17 @@ myApp.controller('MessageController', function($scope) {
 });
 
 myApp.controller("CountController", function($scope) {
-	$scope.count = () => 12
+	$scope.count = () => 12;
 });
 
+myApp.controller("NameController", function($scope) {
+	$scope.name = "Broomhilda";
+});
 
-
+myApp.controller("SecondNameController", function($scope) {
+	$scope.name = "Larry";
+	$scope.wow = "Parents controller gave me this";
+});
 
 
 

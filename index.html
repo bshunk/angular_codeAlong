@@ -28,22 +28,39 @@
 		<input type="button" value="toggle" ng-click="allowed = !allowed">
 	</p> -->
 
-	<p ng-controller="MessageController">
+	<!-- <p ng-controller="MessageController">
 		{{message}}
 	</p>
 
 	<p ng-controller="CountController">
 		There are {{count()}} months in a year
-	</p>
+	</p> -->
 
-	<p>
-		
-	</p>
+	<div ng-controller="SecondNameController">
+		<p>
+			Inside another Scope: {{name}}
+		</p>
+		<p ng-controller="NameController">
+			Inside the Scope: {{name}}
+			Will this work? {{wow}}
+		</p>
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script src="app.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
