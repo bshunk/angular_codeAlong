@@ -20,5 +20,12 @@ myApp.controller("SecondNameController", function($scope) {
 	$scope.wow = "Parents controller gave me this";
 });
 
-
+myApp.controller("TodoController", function($scope) {
+	$scope.todos = [
+		{ name: "Master HTML/CSS/JS", completed: true},
+		{ name: "Learn AngularJS", completed: false},
+		{ name: "Get started With EpressJS", completed: false},
+		{ name: "Be Awesome!", completed: true}
+	]
+});
 
