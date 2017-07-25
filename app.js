@@ -29,3 +29,43 @@ myApp.controller("TodoController", function($scope) {
 	]
 });
 
+// simple provider
+myApp.value("score", {points: 10});
+
+// Another provider. Also makes data available to our app
+myApp.factory("dongFactory", function() {
+	
+});
+
+myApp.controller("ScoreController", function($scope, score) {
+	// do something that requires the score value
+	$scope.scoreCount = score.points;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
