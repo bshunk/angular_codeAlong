@@ -1,24 +1,37 @@
 'use strict';
 
-const myApp = angular.module('funWithStuff', []);
+const myApp = angular.module('funWithStuff', ["ngRoute"]);
 
-// creating a controller-- every controller will look like this-- always takes 2 properties; name of controller and a function passing in $scope
-myApp.controller('MessageController', function($scope) {
-	$scope.message = "Hello, world!";
+myApp.config( ($routeProvider) => {
+	$routeProvider
+	.when('/', {
+		templateUrl: 'partials/song-list.html',
+		controller: 'SongController'
+	})
+	.when('/todo', {
+		templateUrl: 'partials/todo-list.html',
+		controller: 'TodoController'
+	})
+	.otherwise('/');
 });
 
-myApp.controller("CountController", function($scope) {
-	$scope.count = () => 12;
-});
+// // creating a controller-- every controller will look like this-- always takes 2 properties; name of controller and a function passing in $scope
+// myApp.controller('MessageController', function($scope) {
+// 	$scope.message = "Hello, world!";
+// });
 
-myApp.controller("NameController", function($scope) {
-	$scope.name = "Broomhilda";
-});
+// myApp.controller("CountController", function($scope) {
+// 	$scope.count = () => 12;
+// });
 
-myApp.controller("SecondNameController", function($scope) {
-	$scope.name = "Larry";
-	$scope.wow = "Parents controller gave me this";
-});
+// myApp.controller("NameController", function($scope) {
+// 	$scope.name = "Broomhilda";
+// });
+
+// myApp.controller("SecondNameController", function($scope) {
+// 	$scope.name = "Larry";
+// 	$scope.wow = "Parents controller gave me this";
+// });
 
 myApp.controller("TodoController", function($scope) {
 	$scope.todos = [
@@ -49,9 +62,10 @@ myApp.factory("SongFactory", function($q, $http) {
 });
 
 myApp.controller("SongController", function($scope, SongFactory) {
+	console.log("factory?", SongFactory);
 	SongFactory.getSongs()
 	.then( (songsData) => {
+		console.log("songsData?", songsData);
 		$scope.songList = songsData.data.songs;
 	});
 });
-
