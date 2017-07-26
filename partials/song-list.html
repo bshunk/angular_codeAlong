@@ -1,0 +1,11 @@
+<!-- lets add a search box and a filter -->
+<div ng-controller="SongController">
+	<input type="text" ng-model="songSearch">
+	<h2>These are songs!</h2>
+		<ul>
+			<li ng-repeat="songs in songList | filter: {title: songSearch}">
+				{{songs.title}}, by {{songs.artist}}
+			</li>
+		</ul>
+</div>
+
